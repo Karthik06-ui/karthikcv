@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: karthik-portfolio-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
+    startCommand: gunicorn config.wsgi:application --bind 0.0.0.0:$PORT --workers 2
+    healthCheckPath: /api/health/
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.1
+      - key: DEBUG
+        value: "False"
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: ALLOWED_HOSTS
+        value: your-render-service.onrender.com
+      - key: CORS_ALLOWED_ORIGINS
+        value: https://your-portfolio.vercel.app
+      - key: DATABASE_URL
+        fromDatabase:
+          name: karthik-portfolio-db
+          property: connectionString
+      - key: RESEND_API_KEY
+        sync: false
+      - key: RESEND_FROM_EMAIL
+        value: Portfolio <onboarding@resend.dev>
+      - key: CONTACT_RECEIVER_EMAIL
+        sync: false
+      - key: AUTO_REPLY_ENABLED
+        value: "False"
+
+databases:
+  - name: karthik-portfolio-db
+    plan: free
+    databaseName: portfolio
+    user: portfolio_user

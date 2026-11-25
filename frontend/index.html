@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Karthik S — Backend & LLM Engineering</title>
+    <meta
+      name="description"
+      content="Portfolio of Karthik S — Backend-focused CS undergraduate specialising in Python, Django, FastAPI, QLoRA fine-tuning and RAG pipelines."
+    />
+    <meta name="theme-color" content="#0C0C0E" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Karthik S — Backend & LLM Engineering" />
+    <meta property="og:description" content="Backend-focused CS undergraduate building Django/FastAPI systems, fine-tuning vision-language models with QLoRA, and exploring RAG pipelines." />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Karthik S — Backend & LLM Engineering" />
+    <meta name="twitter:description" content="Backend-focused CS undergraduate building Django/FastAPI systems and retrieval-driven AI applications." />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Theme init before first paint -->
+    <script>
+      (function () {
+        try {
+          var s = localStorage.getItem("theme");
+          var prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+          document.documentElement.classList.toggle("dark", s === "dark" || (!s && !prefersLight));
+        } catch (_) {}
+      })();
+    </script>
+  </head>
+  <body class="bg-surface-light text-ink antialiased dark:bg-surface-dark dark:text-chalk">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

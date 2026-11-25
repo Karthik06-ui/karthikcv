@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+
+  :focus-visible {
+    outline: 1.5px solid currentColor;
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: #7CE800;
+    color: #030303;
+  }
+
+  .dark ::selection {
+    background: #7CE800;
+    color: #0C0C0E;
+  }
+}
+
+@layer components {
+  .rule {
+    @apply border-t border-ink/10 dark:border-chalk/15;
+  }
+
+  .section-label {
+    @apply font-mono text-[11px] font-medium tracking-[0.18em] uppercase text-ink/60 dark:text-chalk/50;
+  }
+
+  .link-draw {
+    @apply relative inline-block;
+  }
+  .link-draw::after {
+    content: '';
+    @apply absolute bottom-0 left-0 h-px w-0 bg-current transition-all duration-300;
+  }
+  .link-draw:hover::after {
+    @apply w-full;
+  }
+}
